@@ -8,10 +8,11 @@ var PLAY = 1;
 var END = 0;
 var gameState = PLAY;
 
-
+var jumpsound;
 function preload(){
   trex_running = loadAnimation("trex1.png","trex3.png","trex4.png");
   trex_collided = loadImage("trex_collided.png");
+  jumpsound=loadSound("salamisound-2422598-sfx-jump-4-game-computer.mp3");
   
   groundImage = loadImage("ground2.png");
   
@@ -76,6 +77,7 @@ function draw() {
     
      //jump when the space key is pressed
     if(keyDown("space") && trex.y >= 159){
+      jumpsound.play();
       trex.velocityY = -12 ;
       //playSound("jump.mp3");
     }
